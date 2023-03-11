@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, H1, MainLayout } from "../style";
 
 const User = () => {
 
@@ -22,9 +23,18 @@ const User = () => {
 
   return (
     <>
-        {user && <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", height: "100vh"}}>
-            {user}
-        </div>}
+         <MainLayout>
+            {user &&
+            <>
+                <H1>
+                    Вы вошли в аккаунт под именем: {user}
+                </H1>
+                <Button onClick={() => navigate("/")}>
+                    Выйти
+                </Button>            
+            </>
+            }
+        </MainLayout>
     </>
   );
 }
